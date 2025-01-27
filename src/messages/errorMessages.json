@@ -1,0 +1,759 @@
+{
+    "ERR000": {
+        "variables": ["user"],
+        "translations": {
+            "en-US": "{user}:- Authentication Failed",
+            "fr-FR": "{user}:- Échec de l'authentification"
+        }
+    },
+    "ERR001": {
+        "variables": [],
+        "translations": {
+            "en-US": "Invalid Payload Format",
+            "fr-FR": "Format de charge utile invalide"
+        }
+    },
+    "ERR002": {
+        "variables": ["entityName"],
+        "translations": {
+            "en-US": "Couldn't Retrieve Database Name for {entityName}",
+            "fr-FR": "Impossible de récupérer le nom de la base de données"
+        }
+    },
+    "ERR003": {
+        "variables": [],
+        "translations": {
+            "en-US": "Function not found in FunctionMap",
+            "fr-FR": "Fonction introuvable dans FunctionMap"
+        }
+    },
+    "ERR004": {
+        "variables": [],
+        "translations": {
+            "en-US": "User is not authorized for this action",
+            "fr-FR": "L'utilisateur n'est pas autorisé pour cette action"
+        }
+    },
+    "ERR005": {
+        "variables": [],
+        "translations": {
+            "en-US": "Remote Call Failed",
+            "fr-FR": "Échec de l'appel distant"
+        }
+    },
+    "ERR006": {
+        "variables": ["library"],
+        "translations": {
+            "en-US": "Invalid Library Endpoint: {library}",
+            "fr-FR": "Point de terminaison de bibliothèque invalide : {library}"
+        }
+    },
+    "ERR007": {
+        "variables": ["library"],
+        "translations": {
+            "en-US": "Couldn't Retrieve Library Endpoint: {library}",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque : {library}"
+        }
+    },
+    "ERR104": {
+        "variables": [],
+        "translations": {
+            "en-US": "Failed to log workflow",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque : {library}"
+        }
+    },
+    "ERR105": {
+        "variables": [],
+        "translations": {
+            "en-US": "Failed to serialize record",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR106": {
+        "variables": [],
+        "translations": {
+            "en-US": "Failed to serialize update record",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+
+    "ERR107": {
+        "variables": ["user"],
+        "translations": {
+            "en-US": "User {user} not found in UserMap",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR108": {
+        "variables": [],
+        "translations": {
+            "en-US": "Failed to serialize response",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR109": {
+        "variables": [],
+        "translations": {
+            "en-US": "No result found in response params",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR110": {
+        "variables": [],
+        "translations": {
+            "en-US": "Failed to unmarshal rawResult",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR111": {
+        "variables": [],
+        "translations": {
+            "en-US": "Result is not a valid list of items",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR122": {
+        "variables": [],
+        "translations": {
+            "en-US": "Missing or empty title field",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR123": {
+        "variables": [],
+        "translations": {
+            "en-US": "Missing or empty message field",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR124": {
+        "variables": [],
+        "translations": {
+            "en-US": "Invalid or missing userid field",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+
+
+    "ERR156": {
+        "variables": [],
+        "translations": {
+            "en-US": "Mixing rule missing in configuration",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR158": {
+        "variables": ["entityName"],
+        "translations": {
+            "en-US": "Exiting IdentifyInventory, {entityName} is not allowed to proceed",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+
+
+    "ERR400": {
+        "variables": ["action"],
+        "translations": {
+            "en-US": "Invalid Action: {action}",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque : {action}"
+        }
+    },
+
+
+    "ERR226": {
+        "variables": ["user"],
+        "translations": {
+            "en-US": "Error adding {user} to userMap",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque : {user}"
+        }
+    },
+    "ERR232": {
+        "variables": [],
+        "translations": {
+            "en-US": "Invalid Env structure",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR235": {
+        "variables": ["user","function"],
+        "translations": {
+            "en-US": "{user} is not authorized for {function}",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR212": {
+        "variables": [],
+        "translations": {
+            "en-US": "Invalid message structure",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    }, 
+    "ERR217": {
+        "variables": ["library"],
+        "translations": {
+            "en-US": "Invalid Endpoint for Library: {library}",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR219": {
+        "variables": ["library"],
+        "translations": {
+            "en-US": "No endpoint found for library: {library}",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR230": {
+        "variables": ["error"],
+        "translations": {
+            "en-US": "{error}",
+            "fr-FR": "{error}"
+        }
+    },
+    "ERR231": {
+        "variables": ["function"],
+        "translations": {
+            "en-US": "No {function} structure found for action",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR244": {
+        "variables": [],
+        "translations": {
+            "en-US": "Error fetching rule details",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+
+
+    "ERR253": {
+        "variables": [],
+        "translations": {
+            "en-US": "Error querying workflows",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR255": {
+        "variables": [],
+        "translations": {
+            "en-US": "Failed to retrieve insertion result",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR256": {
+        "variables": [],
+        "translations": {
+            "en-US": "No workflow found for CheckInTrailer",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR373": {
+        "variables": [],
+        "translations": {
+            "en-US":"Error updating appointment record",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR374": {
+        "variables": [],
+        "translations": {
+            "en-US":"Error querying trailers",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR375": {
+        "variables": ["transportEquipment"],
+        "translations": {
+            "en-US":"No trailer found for transport_eqiupment: {transportEquipment}",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR376": {
+        "variables": ["transportEquipment"],
+        "translations": {
+            "en-US":"Error updating trailer {transportEquipment} record ",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR377": {
+        "variables": [],
+        "translations": {
+            "en-US": "Main function not found in LoadHooks",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR404": {
+        "variables": ["function"],
+        "translations": {
+            "en-US": "Function: {function} is not found in FunctionMap",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR407": {
+        "variables": [],
+        "translations": {
+            "en-US": "Missing primaryKey value",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR408": {
+        "variables": [],
+        "translations": {
+            "en-US": "Failed to fetch existing record",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+
+    "ERR401": {
+        "variables": [],
+        "translations": {
+            "en-US": "Missing or invalid entityName",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR405": {
+        "variables": [],
+        "translations": {
+            "en-US": "No main or override function defined.",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR402": {
+        "variables": [],
+        "translations": {
+            "en-US": "Missing or invalid updates field",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR403": {
+        "variables": [],
+        "translations": {
+            "en-US": "Invalid updates format",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR406": {
+        "variables": ["entityName"],
+        "translations": {
+            "en-US": "Entity configuration not found : {entityName}",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR409": {
+        "variables": [],
+        "translations": {
+            "en-US": "Record not found",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+
+    "ERR452": {
+        "variables": [],
+        "translations": {
+            "en-US": "Destination location missing in configuration",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+
+
+    "ERR457": {
+        "variables": [],
+        "translations": {
+            "en-US": "Error accessing database",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+
+    "ERR458": {
+        "variables": [],
+        "translations": {
+            "en-US": "Missing transport_equipment in params",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    
+    "ERR469": {
+        "variables": [],
+        "translations": {
+            "en-US": "Missing dock in params",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR470": {
+        "variables": [],
+        "translations": {
+            "en-US": "Error querying configDB for entity format",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR471": {
+        "variables": [],
+        "translations": {
+            "en-US": "No configuration found for entity: appointment",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR472": {
+        "variables": [],
+        "translations": {
+            "en-US": "Invalid format for entity attributes in configDB",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR473": {
+        "variables": [],
+        "translations": {
+            "en-US": "Error querying inbound_deliveries",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR474": {
+        "variables": ["transportEquipment"],
+        "translations": {
+            "en-US": "No inbound_delivery found for the given {transportEquipment}",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR475": {
+        "variables": [],
+        "translations": {
+            "en-US": "Invalid inbound delivery ID format",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR476": {
+        "variables": [],
+        "translations": {
+            "en-US": "Error querying appointments",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR477": {
+        "variables": ["inboundDelivery"],
+        "translations": {
+            "en-US": "No appointment found for the given {inboundDelivery}",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR423": {
+        "variables": [],
+        "translations": {
+            "en-US": "Couldn't fetch record",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR479": {
+        "variables": ["inboundDelivery"],
+        "translations": {
+            "en-US": "Error updating inbound_deliveries record :{inboundDelivery}",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR480": {
+        "variables": [],
+        "translations": {
+            "en-US": "Invalid appointment ID format",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR481": {
+        "variables": [],
+        "translations": {
+            "en-US": "Error updating appointment record",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR482": {
+        "variables": [],
+        "translations": {
+            "en-US": "Error querying workflows",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR367": {
+        "variables": [],
+        "translations": {
+            "en-US": "No inbound delivery found for the given transport_equipment",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR369": {
+        "variables": [],
+        "translations": {
+            "en-US": "Error updating inbound delivery record",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR483": {
+        "variables": [],
+        "translations": {
+            "en-US": "No workflow found for CheckInTrailer",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR489": {
+        "variables": [],
+        "translations": {
+            "en-US": "GetEntity returned with nil response",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR500": {
+        "variables": [],
+        "translations": {
+            "en-US": "ListEntity returned with nil response",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR501": {
+        "variables": ["function"],
+        "translations": {
+            "en-US": "Pre-hook execution failed for {function}",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR502": {
+        "variables": [],
+        "translations": {
+            "en-US": "Couldn't retrieve info data",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR503": {
+        "variables": [],
+        "translations": {
+            "en-US": "Failed to read record",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR504": {
+        "variables": [],
+        "translations": {
+            "en-US": "Missing primary_key or indexes",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+
+    "ERR506": {
+        "variables": [],
+        "translations": {
+            "en-US": "Failed to serialize available pallets",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR507": {
+        "variables": [],
+        "translations": {
+            "en-US": "Error unmarshaling payload",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR118": {
+        "variables": [],
+        "translations": {
+            "en-US": "Missing required fields: transport_equipment or location",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+
+
+
+    "ERR511": {
+        "variables": [],
+        "translations": {
+            "en-US": "Error accessing pallet build configuration",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+
+    "ERR572": {
+        "variables": [],
+        "translations": {
+            "en-US": "Rule details not found in mixing_rule table",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR545": {
+        "variables": [],
+        "translations": {
+            "en-US": "Failed to save new LPN",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+
+
+
+    "ERR604": {
+        "variables": [],
+        "translations": {
+            "en-US": "Area not found",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR605": {
+        "variables": [],
+        "translations": {
+            "en-US": "Couldn't Insert Data",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    
+
+    "ERR606": {
+        "variables": [],
+        "translations": {
+            "en-US": "Couldn't Retrieve Records",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR607": {
+        "variables": [],
+        "translations": {
+            "en-US": "Failed to update record",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR608": {
+        "variables": [],
+        "translations": {
+            "en-US": "Failed to serialize logPayload",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR609": {
+        "variables": [],
+        "translations": {
+            "en-US": "Failed to serialize results",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR610": {
+        "variables": [],
+        "translations": {
+            "en-US": "Failed to log add entity",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR611": {
+        "variables": [],
+        "translations": {
+            "en-US": "Result is empty",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR612": {
+        "variables": [],
+        "translations": {
+            "en-US": "Failed to log ",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR617": {
+        "variables": [],
+        "translations": {
+            "en-US": "Couldn't replace entity",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+
+
+
+    "ERR615": {
+        "variables": ["LPN"],
+        "translations": {
+            "en-US": "{LPN} not found in database",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+
+    "ERR651": {
+        "variables": [],
+        "translations": {
+            "en-US": "LPN field is empty",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR657": {
+        "variables": ["primaryKey"],
+        "translations": {
+            "en-US": "Couldn't Delete Data : {primaryKey}",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+
+    "ERR624": {
+        "variables": [],
+        "translations": {
+            "en-US": "No LPNs match ",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR411": {
+        "variables": [],
+        "translations": {
+            "en-US": "Failed to log entity operation",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+
+
+
+    "ERR758": {
+        "variables": [],
+        "translations": {
+            "en-US": "Missing inbound_delivery in payload from dock sheduling",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR759": {
+        "variables": [],
+        "translations": {
+            "en-US": "Error querying appointments from dock sheduling",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR760": {
+        "variables": ["inboundDelivery"],
+        "translations": {
+            "en-US": "No appointment found for the given {inboundDelivery}",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR766": {
+        "variables": [],
+        "translations": {
+            "en-US": "Error reading appointments into cache",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "ERR769": {
+        "variables": [],
+        "translations": {
+            "en-US": "Couldn't Fetch Area Data",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },"ERR775": {
+        "variables": [],
+        "translations": {
+            "en-US": "No criteria found in rule details",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+
+
+
+    "ERR851": {
+        "variables": [],
+        "translations": {
+            "en-US": "No configuration found for the customer and location",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+
+    "ERR951": {
+        "variables": ["LPN"],
+        "translations": {
+            "en-US": "Location attribute missing for {LPN}",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    }
+}

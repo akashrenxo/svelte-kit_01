@@ -1,0 +1,24 @@
+{
+    "WARN000": {
+        "variables": [],
+        "translations": {
+            "en-US": "Warning! Authentication Failed",
+            "fr-FR": "Attention ! Échec de l'authentification"
+        }
+    },
+    
+    "WARN002": {
+        "variables": [],
+        "translations": {
+            "en-US": "Warning! Select workArea that type should be Processing",
+            "fr-FR": "Attention ! Impossible de récupérer le nom de la base de données"
+        }
+    },
+    "WARN003": {
+        "variables": ["locationType"],
+        "translations": {
+            "en-US": "Warning! Area type should be Processing; Currently you're at {locationType}",
+            "fr-FR": "Attention ! Fonction introuvable dans FunctionMap"
+        }
+    }
+}

@@ -1,0 +1,164 @@
+{
+    "SUCCESS000": {
+        "variables": ["user"],
+        "translations": {
+            "en-US": "{user} :- Authentication Successful",
+            "fr-FR": "{user} :- Authentification réussie"
+        }
+    },
+   
+    "SUCCESS008": {
+        "variables": ["primaryKey"],
+        "translations": {
+            "en-US": "{primaryKey}:- Record retrieved successfully",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque : {primaryKey}"
+        }
+    },
+    "SUCCESS020": {
+        "variables": [],
+        "translations": {
+            "en-US": "Successfully retrieved EntityInfo",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "SUCCESS122": {
+        "variables": [],
+        "translations": {
+            "en-US": "Successfully added entity",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "SUCCESS199": {
+        "variables": [],
+        "translations": {
+            "en-US": "Record updated successfully",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "SUCCESS200": {
+        "variables": [],
+        "translations": {
+            "en-US": "Records retrieved successfully",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "SUCCESS201": {
+        "variables": [],
+        "translations": {
+            "en-US": "Menu retrieved successfully",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "SUCCESS500": {
+        "variables": [],
+        "translations": {
+            "en-US": "Verified id for receiving",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "SUCCESS220": {
+        "variables": [],
+        "translations": {
+            "en-US": "Successfully deleted record",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "SUCCESS233": {
+        "variables": [],
+        "translations": {
+            "en-US": "Created locations to master Db",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "SUCCESS206": {
+        "variables": ["primaryKey"],
+        "translations": {
+            "en-US": "Successfully replaced the data for {primaryKey}",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "SUCCESS211": {
+        "variables": [],
+        "translations": {
+            "en-US": "Added Log Successfully",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "SUCCESS323": {
+        "variables": ["transportEquipment"],
+        "translations": {
+            "en-US": "Suucessfully unloaded the trailer: {transportEquipment}"
+           
+        }
+    },
+    "SUCCESS511": {
+        "variables": [],
+        "translations": {
+            "en-US": "Sucessfully retrieved available pallets",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "SUCCESS501": {
+        "variables": [],
+        "translations": {
+            "en-US": "Verified id for receiving, you already have ibd and order num",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "SUCCESS522": {
+        "variables": [],
+        "translations": {
+            "en-US": "Submitted Workflow Successfully",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "SUCCESS542": {
+        "variables": ["user"],
+        "translations": {
+            "en-US": "User {user} has access to Pallet Building",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "SUCCESS545": {
+        "variables": [],
+        "translations": {
+            "en-US": "Successfully, retrieved workflow for IdentifyInventory",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "SUCCESS546": {
+        "variables": [],
+        "translations": {
+            "en-US": "Choose from the given order list",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "SUCCESS655": {
+        "variables": [],
+        "translations": {
+            "en-US": "Successfully, retrieved receipt info",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "SUCCESS656": {
+        "variables": ["dock","ibd"],
+        "translations": {
+            "en-US": "Successfully assigned dock no: {dock} for IBD : {ibd} ",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "SUCCESS2001": {
+        "variables": ["transportEquipment"],
+        "translations": {
+            "en-US": "Successfully checked-in trailer no: {transportEquipment}",
+            "fr-FR": "Aucun point de terminaison trouvé pour la bibliothèque"
+        }
+    },
+    "SUCCESS5998": {
+        "variables": ["users"],
+        "translations": {
+            "en-US": "Message sent to : {users}",
+            "fr-FR": "Point de terminaison de bibliothèque invalide : {users}"
+        }
+    }
+}

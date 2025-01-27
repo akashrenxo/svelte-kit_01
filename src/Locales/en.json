@@ -1,0 +1,79 @@
+{
+    "navbar": {
+        "brand": "RenxoTech",
+        "services": "Services",
+        "about": "About",
+        "contact": "Contact",
+        "message": "Message",
+        "signIn": "Sign In",
+        "noMenuItems": "No menu items available",
+        "androidDevelopment": "Android Development",
+        "appDevelopment": "App Development"
+    },
+    "nav": {
+        "warehouseManagementSystem": "WAREHOUSE MANAGEMENT SYSTEM",
+        "serviceDetails": "Service Details",
+        "editAndDeploy": "Edit and Deploy",
+        "setupDeployment": "Setup Deployment",
+        "test": "Test"
+    },
+    "workflow": {
+        "workflowLabel": "Workflow",
+        "typeLabel": "Type",
+        "reason": "Checking In Trailer",
+        "selectOption": "Select an option",
+        "submitButton": "Submit"
+    },
+    "checkInTrailer": {
+        "title": "Check In Trailer",
+        "transportEquipmentLabel": "Transport Equipment:",
+        "transportEquipmentPlaceholder": "Enter transport equipment",
+        "dockDoorLabel": "Dock Door Number:",
+        "dockDoorPlaceholder": "Enter dock door number",
+        "submitButton": "Submit",
+        "errorLabel": "Error",
+        "errorTransportEquipment": "Please enter transport equipment.",
+        "errorDockDoor": "Please enter dock door number.",
+        "submissionAlert": "Data submission in progress...",
+        "closeModalButton": "Close Modal"
+    },
+    "trailer": {
+        "validationLog": "Validating trailer number:",
+        "validateFirst": "Please validate the trailer number before submitting.",
+        "unloadRequestSuccess": "Unload trailer request submitted successfully.",
+        "loadFailure": "Failed to load data after multiple attempts.",
+        "parseError": "Error parsing inbound_delivery:",
+        "locationLabel": "Location",
+        "selectLocation": "-- Select Location --",
+        "previous": "Previous Locations",
+        "next": "Load More Locations",
+        "noLocations": "No locations found.",
+        "trailerLabel": "Enter Trailer Number",
+        "trailerPlaceholder": "Enter trailer number",
+        "validate": "Validate",
+        "submit": "Submit",
+        "validationSuccess": "Validation Successful",
+        "transportEquipment": "Transport Equipment",
+        "supplier": "Supplier",
+        "status": "Status",
+        "order": "Order",
+        "notAvailable": "N/A",
+        "notValidated": "Not Validated"
+    },
+    "searchableMenu": {
+        "searchMenuItems": "Search menu items",
+        "searchPlaceholder": "Search menu items...",
+        "searchInputLabel": "Search menu items",
+        "searchButton": "Search",
+        "search": "Search",
+        "searchResults": "Search results",
+        "under": "under",
+        "mainMenu": "main menu",
+        "noResults": "No matching menu items found"
+    },
+    "menu": {
+        "refreshing": "Refreshing menu items...",
+        "loading": "Loading menu items...",
+        "connecting": "Connecting to server..."
+    }
+}

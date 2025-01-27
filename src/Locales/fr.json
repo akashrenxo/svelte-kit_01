@@ -1,0 +1,80 @@
+{
+    "navbar": {
+      "brand": "RenxoTech",
+      "services": "Services",
+      "about": "À propos",
+      "contact": "Contact",
+      "message": "Message",
+      "signIn": "Se connecter",
+      "noMenuItems": "Aucun élément de menu disponible",
+      "androidDevelopment": "Développement Android",
+      "appDevelopment": "Développement d'applications"
+    },
+    "nav": {
+        "warehouseManagementSystem": "SYSTÈME DE GESTION D'ENTREPÔT",
+        "serviceDetails": "Détails du Service",
+        "editAndDeploy": "Modifier et Déployer",
+        "setupDeployment": "Configurer le Déploiement",
+        "test": "Test"
+    },
+    "workflow": {
+        "workflowLabel": "Flux de travail",
+        "typeLabel": "Type",
+        "reason": "Vérification de la remorque",
+        "selectOption": "Sélectionnez une option",
+        "submitButton": "Soumettre"
+    },
+    "checkInTrailer": {
+        "title": "Enregistrer la Remorque",
+        "transportEquipmentLabel": "Équipement de Transport:",
+        "transportEquipmentPlaceholder": "Entrez l'équipement de transport",
+        "dockDoorLabel": "Numéro de Porte de Quai:",
+        "dockDoorPlaceholder": "Entrez le numéro de porte de quai",
+        "submitButton": "Soumettre",
+        "errorLabel": "Erreur",
+        "errorTransportEquipment": "Veuillez entrer l'équipement de transport.",
+        "errorDockDoor": "Veuillez entrer le numéro de porte de quai.",
+        "submissionAlert": "Soumission des données en cours...",
+        "closeModalButton": "Fermer la fenêtre"
+    },
+    "trailer": {
+        "validationLog": "Validation du numéro de remorque :",
+        "validateFirst": "Veuillez valider le numéro de remorque avant de soumettre.",
+        "unloadRequestSuccess": "Demande de déchargement de la remorque soumise avec succès.",
+        "loadFailure": "Échec du chargement des données après plusieurs tentatives.",
+        "parseError": "Erreur lors de l'analyse de inbound_delivery :",
+        "locationLabel": "Emplacement",
+        "selectLocation": "-- Sélectionnez un emplacement --",
+        "previous": "Emplacements Précédents",
+        "next": "Charger plus d'emplacements",
+        "noLocations": "Aucun emplacement trouvé.",
+        "trailerLabel": "Entrez le numéro de remorque",
+        "trailerPlaceholder": "Entrez le numéro de remorque",
+        "validate": "Valider",
+        "submit": "Soumettre",
+        "validationSuccess": "Validation réussie",
+        "transportEquipment": "Équipement de Transport",
+        "supplier": "Fournisseur",
+        "status": "Statut",
+        "order": "Commande",
+        "notAvailable": "N/D",
+        "notValidated": "Non Validé"
+    },
+    "searchableMenu": {
+        "searchMenuItems": "Rechercher des éléments de menu",
+        "searchPlaceholder": "Recherchez des éléments de menu...",
+        "searchInputLabel": "Recherchez des éléments de menu",
+        "searchButton": "Rechercher",
+        "search": "Rechercher",
+        "searchResults": "Résultats de recherche",
+        "under": "sous",
+        "mainMenu": "menu principal",
+        "noResults": "Aucun élément de menu correspondant trouvé"
+    },
+    "menu": {
+        "refreshing": "Actualisation des éléments de menu...",
+        "loading": "Chargement des éléments de menu...",
+        "connecting": "Connexion au serveur..."
+    }
+  }
+  

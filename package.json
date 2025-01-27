@@ -1,0 +1,39 @@
+{
+	"name": "testing-svelte",
+	"private": true,
+	"version": "0.0.1",
+	"type": "module",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
+	},
+	"devDependencies": {
+		"@smui/data-table": "^8.0.0-beta.3",
+		"@sveltejs/adapter-auto": "^3.0.0",
+		"@sveltejs/kit": "^2.15.1",
+		"@sveltejs/vite-plugin-svelte": "^4.0.0",
+		"@types/jquery": "^3.5.32",
+		"@types/js-cookie": "^3.0.6",
+		"@types/node": "^22.10.5",
+		"autoprefixer": "^10.4.20",
+		"daisyui": "^4.12.23",
+		"postcss": "^8.4.49",
+		"svelte": "^5.17.0",
+		"svelte-check": "^4.0.0",
+		"tailwindcss": "^3.4.17",
+		"typescript": "^5.7.2",
+		"vite": "^5.4.11"
+	},
+	"dependencies": {
+		"dotenv": "^16.4.7",
+		"jquery": "^3.7.1",
+		"js-cookie": "^3.0.5",
+		"lucide-svelte": "^0.469.0",
+		"svelte-i18n": "^4.0.1",
+		"svelte-kit": "^1.2.0",
+		"svelte-select": "^5.8.3"
+	}
+}
