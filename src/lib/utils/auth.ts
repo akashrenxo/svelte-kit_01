@@ -1,6 +1,7 @@
 import { goto } from "$app/navigation";
 import Cookies from "js-cookie";
 
+// const API_BASE_URL = "http://192.168.31.245:8087";
 const API_BASE_URL = "http://localhost:8086";
 
 interface AuthResponse {

@@ -42,7 +42,7 @@
         attributes,
         isConnected,
         fetchEntities,
-        fetchEntityAttributes
+        fetchEntityAttributes,
     } = entityStore(entityName);
 
     let entity_address = entityName + "_address";
@@ -51,7 +51,9 @@
         const idAttribute = $attributes.find((attr) => attr.data_type === "id");
         if (!idAttribute) {
             console.error("No attribute with data_type 'id' found.");
-            alert("Unable to delete record: Missing primary key configuration.");
+            alert(
+                "Unable to delete record: Missing primary key configuration.",
+            );
             return;
         }
         const primaryKeyName = idAttribute.name;
@@ -66,7 +68,9 @@
         const idAttribute = $attributes.find((attr) => attr.data_type === "id");
         if (!idAttribute) {
             console.error("No attribute with data_type 'id' found.");
-            alert("Unable to delete record: Missing primary key configuration.");
+            alert(
+                "Unable to delete record: Missing primary key configuration.",
+            );
             return;
         }
         const primaryKeyName = idAttribute.name;
@@ -87,7 +91,9 @@
 
         const attemptConnection = async () => {
             if (!$isConnected && connectionAttempts < maxAttempts) {
-                console.log(`Connection attempt ${connectionAttempts + 1} of ${maxAttempts}`);
+                console.log(
+                    `Connection attempt ${connectionAttempts + 1} of ${maxAttempts}`,
+                );
                 try {
                     await websocketStore.connect(wsURL, userId);
                     connectionAttempts++;
@@ -118,7 +124,9 @@
                 if ($isConnected) {
                     break;
                 }
-                await new Promise((resolve) => setTimeout(resolve, attemptInterval));
+                await new Promise((resolve) =>
+                    setTimeout(resolve, attemptInterval),
+                );
             }
 
             if ($isConnected) {
@@ -128,7 +136,9 @@
                     await fetchData();
                 }
             } else {
-                console.error("Max connection attempts reached. Could not connect.");
+                console.error(
+                    "Max connection attempts reached. Could not connect.",
+                );
             }
         };
 
@@ -154,7 +164,11 @@
     let columnOrder = writable<string[]>([]);
 
     $: {
-        if ($attributes && $attributes.length > 0 && $columnOrder.length === 0) {
+        if (
+            $attributes &&
+            $attributes.length > 0 &&
+            $columnOrder.length === 0
+        ) {
             columnOrder.set($attributes.map((attr) => attr.name));
         }
     }
@@ -222,10 +236,10 @@
                         attr.data_type === "id"
                             ? 300
                             : attr.data_type === "string"
-                            ? 300
-                            : attr.data_type === "date"
-                            ? 300
-                            : 300;
+                              ? 300
+                              : attr.data_type === "date"
+                                ? 300
+                                : 300;
                     newWidths[attr.name] = width;
                 }
             });
@@ -253,7 +267,7 @@
 
         columnWidths.update((widths) => ({
             ...widths,
-            [columnName]: newWidth
+            [columnName]: newWidth,
         }));
     }
 
@@ -267,132 +281,150 @@
 </script>
 
 {#if $isConnected}
-<div class="max-w-[90%] mx-auto mt-10 font-sans text-sm">
-    <div class="flex justify-between items-center mb-6 font-sans">
-        <div class="flex items-center gap-2">
-            <select
-                id="limit"
-                class="px-2 py-2 text-sm border border-gray-300 rounded text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-600"
-                bind:value={limit}
-            >
-                <option value={3}>3</option>
-                <option value={5}>5</option>
-                <option value={10}>10</option>
-                <option value={20}>20</option>
-            </select>
-            <label for="entries" class="text-gray-600 text-sm">
-                : Entries per page
-            </label>
+    <div class="max-w-[90%] mx-auto mt-10 font-sans text-sm">
+        <div class="flex justify-between items-center mb-6 font-sans">
+            <div class="flex items-center gap-2">
+                <select
+                    id="limit"
+                    class="px-2 py-2 text-sm border border-gray-300 rounded text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    bind:value={limit}
+                >
+                    <option value={3}>3</option>
+                    <option value={5}>5</option>
+                    <option value={10}>10</option>
+                    <option value={20}>20</option>
+                </select>
+                <label for="entries" class="text-gray-600 text-sm">
+                    : Entries per page
+                </label>
+            </div>
+            <div class="flex gap-4 font-poppins text-sm">
+                <button
+                    class="bg-[#34495E] text-white px-4 py-2 rounded-lg shadow transition-all"
+                    on:click={() => {
+                        isFilterModalOpen = true;
+                    }}
+                >
+                    Filter
+                </button>
+                <button
+                    class="bg-[#00B894] text-white px-4 py-2 rounded-lg shadow transition-all"
+                    on:click={() => {
+                        isAddModalOpen = true;
+                    }}
+                >
+                    Add {entityName}
+                </button>
+            </div>
         </div>
-        <div class="flex gap-4 font-poppins text-sm">
-            <button
-                class="bg-[#34495E] text-white px-4 py-2 rounded-lg shadow transition-all"
-                on:click={() => {
-                    isFilterModalOpen = true;
-                }}
-            >
-                Filter
-            </button>
-            <button
-                class="bg-[#00B894] text-white px-4 py-2 rounded-lg shadow transition-all"
-                on:click={() => {
-                    isAddModalOpen = true;
-                }}
-            >
-                Add {entityName}
-            </button>
-        </div>
-    </div>
 
-    <!-- Table Container -->
-    <div class="overflow-x-auto border border-gray-300 rounded-lg shadow-md h-[450px] scrollbar-beautiful">
-        <table
-            class="table-auto min-w-[800px] w-full text-sm text-gray-700 bg-white"
-            style="border-collapse: collapse;"
+        <!-- Table Container -->
+        <div
+            class="overflow-x-auto border border-gray-300 rounded-lg shadow-md h-[450px] scrollbar-beautiful"
         >
-            <thead class="sticky top-0 bg-gray-50 border-b border-gray-300">
-                <tr>
-                    <!-- Give the ACTIONS column a fixed min-width so the icons are visible -->
-                    <th
-                        class="py-4 px-4 text-start font-semibold border-r border-gray-300 last:border-r-0 min-w-[120px]"
-                    >
-                        ACTIONS
-                    </th>
-                    {#each $columnOrder as columnName}
+            <table
+                class="table-auto min-w-[800px] w-full text-sm text-gray-700 bg-white"
+                style="border-collapse: collapse;"
+            >
+                <thead class="sticky top-0 bg-gray-50 border-b border-gray-300">
+                    <tr>
+                        <!-- Give the ACTIONS column a fixed min-width so the icons are visible -->
                         <th
-                            draggable={true}
-                            on:dragstart={(e) => handleDragStart(e, columnName)}
-                            on:dragover={(e) => handleDragOver(e, columnName)}
-                            on:dragleave={handleDragLeave}
-                            on:drop={(e) => handleDrop(e, columnName)}
-                            on:dragend={handleDragEnd}
-                            style="width: {$columnWidths[columnName]}px; min-width: {$columnWidths[columnName]}px"
-                            class="relative py-4 px-3 text-left font-semibold border-r border-gray-300 last:border-r-0 select-none transition-all duration-200 ease-in-out column-header
+                            class="py-4 px-4 text-start font-semibold border-r border-gray-300 last:border-r-0 min-w-[120px]"
+                        >
+                            ACTIONS
+                        </th>
+                        {#each $columnOrder as columnName}
+                            <th
+                                draggable={true}
+                                on:dragstart={(e) =>
+                                    handleDragStart(e, columnName)}
+                                on:dragover={(e) =>
+                                    handleDragOver(e, columnName)}
+                                on:dragleave={handleDragLeave}
+                                on:drop={(e) => handleDrop(e, columnName)}
+                                on:dragend={handleDragEnd}
+                                style="width: {$columnWidths[
+                                    columnName
+                                ]}px; min-width: {$columnWidths[columnName]}px"
+                                class="relative py-4 px-3 text-left font-semibold border-r border-gray-300 last:border-r-0 select-none transition-all duration-200 ease-in-out column-header
                                 {draggedColumn === columnName
                                     ? 'bg-blue-100'
                                     : 'hover:bg-gray-200'}
-                                {dragOverColumn === columnName ? 'bg-blue-50' : ''}
+                                {dragOverColumn === columnName
+                                    ? 'bg-blue-50'
+                                    : ''}
                                 {isResizing
                                     ? 'select-none'
                                     : 'cursor-grab active:cursor-grabbing'}"
-                        >
-                            <div class="flex flex-row items-center gap-2">
-                                <span>
-                                    {columnName.replace(/_/g, " ").toUpperCase()}
-                                </span>
-                                <img
-                                    src={sortingArrows}
-                                    alt="sortingArrows"
-                                    class="h-4 hover:cursor-pointer"
-                                />
-                            </div>
-                            <div
-                                class="resize-handle"
-                                class:active={isResizing &&
-                                    currentColumnIndex === $columnOrder.indexOf(columnName)}
-                                on:mousedown={(e) => startResize(columnName, e)}
-                                role="button"
-                                tabindex="0"
-                                aria-label="Resize column"
-                            ></div>
-                        </th>
-                    {/each}
-                </tr>
-            </thead>
-
-            <tbody>
-                {#if $entitiesData.length > 0}
-                    {#each $entitiesData as entity}
-                        <tr class="bg-white even:bg-gray-50 hover:bg-gray-200 duration-150 border-b border-gray-300 last:border-b-0">
-                            <td
-                                class="py-3 px-2 border-r border-gray-300 last:border-r-0"
-                                style="min-width:120px; white-space:nowrap;"
                             >
-                                <!-- Inline flex container to keep buttons in one line -->
-                                <div class="inline-flex items-center gap-x-3">
-                                    <button
-                                        type="button"
-                                        class="text-blue-500 hover:text-blue-700 transition duration-150 ease-in-out"
-                                        on:click={() => openEditModal(entity)}
+                                <div class="flex flex-row items-center gap-2">
+                                    <span>
+                                        {columnName
+                                            .replace(/_/g, " ")
+                                            .toUpperCase()}
+                                    </span>
+                                    <img
+                                        src={sortingArrows}
+                                        alt="sortingArrows"
+                                        class="h-4 hover:cursor-pointer"
+                                    />
+                                </div>
+                                <div
+                                    class="resize-handle"
+                                    class:active={isResizing &&
+                                        currentColumnIndex ===
+                                            $columnOrder.indexOf(columnName)}
+                                    on:mousedown={(e) =>
+                                        startResize(columnName, e)}
+                                    role="button"
+                                    tabindex="0"
+                                    aria-label="Resize column"
+                                ></div>
+                            </th>
+                        {/each}
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {#if $entitiesData.length > 0}
+                        {#each $entitiesData as entity}
+                            <tr
+                                class="bg-white even:bg-gray-50 hover:bg-gray-200 duration-150 border-b border-gray-300 last:border-b-0"
+                            >
+                                <td
+                                    class="py-3 px-2 border-r border-gray-300 last:border-r-0"
+                                    style="min-width:120px; white-space:nowrap;"
+                                >
+                                    <!-- Inline flex container to keep buttons in one line -->
+                                    <div
+                                        class="inline-flex items-center gap-x-3"
                                     >
-                                        <img
-                                            src={edit}
-                                            alt="Edit"
-                                            class="h-5 inline"
-                                        />
-                                    </button>
-                                    <button
-                                        type="button"
-                                        class="text-red-500 hover:text-red-700 transition duration-150 ease-in-out"
-                                        on:click={() => openDeleteModal(entity)}
-                                    >
-                                        <img
-                                            src={deleteButton}
-                                            alt="Delete"
-                                            class="h-5 inline"
-                                        />
-                                    </button>
-                                    <!-- If you want view details, uncomment:
+                                        <button
+                                            type="button"
+                                            class="text-blue-500 hover:text-blue-700 transition duration-150 ease-in-out"
+                                            on:click={() =>
+                                                openEditModal(entity)}
+                                        >
+                                            <img
+                                                src={edit}
+                                                alt="Edit"
+                                                class="h-5 inline"
+                                            />
+                                        </button>
+                                        <button
+                                            type="button"
+                                            class="text-red-500 hover:text-red-700 transition duration-150 ease-in-out"
+                                            on:click={() =>
+                                                openDeleteModal(entity)}
+                                        >
+                                            <img
+                                                src={deleteButton}
+                                                alt="Delete"
+                                                class="h-5 inline"
+                                            />
+                                        </button>
+                                        <!-- If you want view details, uncomment:
                                     <button
                                         type="button"
                                         class="text-blue-500 hover:text-blue-700 transition duration-150 ease-in-out"
@@ -405,110 +437,140 @@
                                         />
                                     </button>
                                     -->
-                                </div>
-                            </td>
-                            {#each $columnOrder as columnName}
-                                <td
-                                    class="py-3 px-4 text-sm whitespace-nowrap hover:cursor-pointer border-r border-gray-300 last:border-r-0"
-                                    style="width: {$columnWidths[columnName]}px; min-width: {$columnWidths[columnName]}px"
-                                    on:click={() => openViewDetailsModal(entity)}
-                                >
-                                    {#if typeof entity[columnName] === "object" && entity[columnName] !== null}
-                                        {#if columnName === entity_address}
-                                            {#each ["line", "city", "state", "country", "zip"] as key, i}
-                                                {#if entity[columnName]?.[key]}
-                                                    {" " + entity[columnName][key]}{#if i < 4},{/if}
-                                                {/if}
-                                            {/each}
-                                        {:else}
-                                            {JSON.stringify(entity[columnName])}
-                                        {/if}
-                                    {:else}
-                                        {entity[columnName]}
-                                    {/if}
+                                    </div>
                                 </td>
-                            {/each}
-                        </tr>
-                    {/each}
-                {/if}
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Pagination -->
-    <div class="flex justify-between items-center mt-6 text-sm text-gray-700 font-sans">
-        <div>Showing 1 to {limit} of {$totalrecords} entries</div>
-        <div class="flex justify-between items-center text-sm text-gray-700 font-sans">
-            <div class="flex items-center space-x-2">
-                <button
-                    class="px-2 py-1 border border-gray-300 rounded text-gray-600 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
-                    on:click={() => {
-                        currentPage = 1;
-                        fetchEntities(limit, 0, $requestid);
-                    }}
-                    disabled={currentPage === 1}
-                >
-                    &laquo;
-                </button>
-
-                <button
-                    class="px-2 py-1 border border-gray-300 rounded text-gray-600 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
-                    on:click={() => {
-                        currentPage--;
-                        fetchEntities(limit, (currentPage - 1) * limit, $requestid);
-                    }}
-                    disabled={currentPage === 1}
-                >
-                    &lsaquo;
-                </button>
-
-                {#each Array(Math.ceil(Number($totalrecords) / Number(limit))).fill(0) as _, index}
-                    {#if index < 6 ||
-                         index === Math.ceil(Number($totalrecords) / Number(limit)) - 1 ||
-                         (index >= currentPage - 2 && index <= currentPage)}
-                        <button
-                            class={`px-2 py-1 border border-gray-300 rounded text-gray-600 hover:bg-gray-200 ${
-                                currentPage == index + 1 ? "bg-gray-200" : ""
-                            }`}
-                            on:click={() => {
-                                fetchEntities(limit, index * limit, $requestid);
-                                currentPage = index + 1;
-                            }}
-                        >
-                            {index + 1}
-                        </button>
-                    {:else if index === 6 ||
-                        (index === currentPage + 2 &&
-                            currentPage < Math.ceil(Number($totalrecords) / Number(limit)) - 4)}
-                        <span class="px-2 py-1 text-gray-600">...</span>
+                                {#each $columnOrder as columnName}
+                                    <td
+                                        class="py-3 px-4 text-sm whitespace-nowrap hover:cursor-pointer border-r border-gray-300 last:border-r-0"
+                                        style="width: {$columnWidths[
+                                            columnName
+                                        ]}px; min-width: {$columnWidths[
+                                            columnName
+                                        ]}px"
+                                        on:click={() =>
+                                            openViewDetailsModal(entity)}
+                                    >
+                                        {#if typeof entity[columnName] === "object" && entity[columnName] !== null}
+                                            {#if columnName === entity_address}
+                                                {#each ["line", "city", "state", "country", "zip"] as key, i}
+                                                    {#if entity[columnName]?.[key]}
+                                                        {" " +
+                                                            entity[columnName][
+                                                                key
+                                                            ]}{#if i < 4},{/if}
+                                                    {/if}
+                                                {/each}
+                                            {:else}
+                                                {JSON.stringify(
+                                                    entity[columnName],
+                                                )}
+                                            {/if}
+                                        {:else}
+                                            {entity[columnName]}
+                                        {/if}
+                                    </td>
+                                {/each}
+                            </tr>
+                        {/each}
                     {/if}
-                {/each}
+                </tbody>
+            </table>
+        </div>
 
-                <button
-                    class="px-2 py-1 border border-gray-300 rounded text-gray-600 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
-                    on:click={() => {
-                        currentPage++;
-                        fetchEntities(limit, (currentPage - 1) * limit, $requestid);
-                    }}
-                    disabled={!$hasmore}
-                >
-                    &rsaquo;
-                </button>
+        <!-- Pagination -->
+        <div
+            class="flex justify-between items-center mt-6 text-sm text-gray-700 font-sans"
+        >
+            <div>Showing 1 to {limit} of {$totalrecords} entries</div>
+            <div
+                class="flex justify-between items-center text-sm text-gray-700 font-sans"
+            >
+                <div class="flex items-center space-x-2">
+                    <button
+                        class="px-2 py-1 border border-gray-300 rounded text-gray-600 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                        on:click={() => {
+                            currentPage = 1;
+                            fetchEntities(limit, 0, $requestid);
+                        }}
+                        disabled={currentPage === 1}
+                    >
+                        &laquo;
+                    </button>
 
-                <button
-                    class="px-2 py-1 border border-gray-300 rounded text-gray-600 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
-                    disabled={!$hasmore}
-                    on:click={() => {
-                        currentPage = Math.ceil(Number($totalrecords) / Number(limit));
-                        fetchEntities(limit, $totalrecords - limit, $requestid);
-                    }}
-                >
-                    &raquo;
-                </button>
+                    <button
+                        class="px-2 py-1 border border-gray-300 rounded text-gray-600 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                        on:click={() => {
+                            currentPage--;
+                            fetchEntities(
+                                limit,
+                                (currentPage - 1) * limit,
+                                $requestid,
+                            );
+                        }}
+                        disabled={currentPage === 1}
+                    >
+                        &lsaquo;
+                    </button>
+
+                    {#each Array(Math.ceil(Number($totalrecords) / Number(limit))).fill(0) as _, index}
+                        {#if index < 6 || index === Math.ceil(Number($totalrecords) / Number(limit)) - 1 || (index >= currentPage - 2 && index <= currentPage)}
+                            <button
+                                class={`px-2 py-1 border border-gray-300 rounded text-gray-600 hover:bg-gray-200 ${
+                                    currentPage == index + 1
+                                        ? "bg-gray-200"
+                                        : ""
+                                }`}
+                                on:click={() => {
+                                    fetchEntities(
+                                        limit,
+                                        index * limit,
+                                        $requestid,
+                                    );
+                                    currentPage = index + 1;
+                                }}
+                            >
+                                {index + 1}
+                            </button>
+                        {:else if index === 6 || (index === currentPage + 2 && currentPage < Math.ceil(Number($totalrecords) / Number(limit)) - 4)}
+                            <span class="px-2 py-1 text-gray-600">...</span>
+                        {/if}
+                    {/each}
+
+                    <button
+                        class="px-2 py-1 border border-gray-300 rounded text-gray-600 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                        on:click={() => {
+                            currentPage++;
+                            fetchEntities(
+                                limit,
+                                (currentPage - 1) * limit,
+                                $requestid,
+                            );
+                        }}
+                        disabled={!$hasmore}
+                    >
+                        &rsaquo;
+                    </button>
+
+                    <button
+                        class="px-2 py-1 border border-gray-300 rounded text-gray-600 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                        disabled={!$hasmore}
+                        on:click={() => {
+                            currentPage = Math.ceil(
+                                Number($totalrecords) / Number(limit),
+                            );
+                            fetchEntities(
+                                limit,
+                                $totalrecords - limit,
+                                $requestid,
+                            );
+                        }}
+                    >
+                        &raquo;
+                    </button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 {:else}
     <p>Connecting to the server, please wait...</p>
 {/if}
@@ -541,7 +603,8 @@
 {/if}
 
 <style>
-    th, td {
+    th,
+    td {
         border-color: #d1d5db; /* tailwind's gray-300 */
     }
 
@@ -587,7 +650,9 @@
     }
 
     .column-header {
-        transition: background-color 0.2s, transform 0.1s;
+        transition:
+            background-color 0.2s,
+            transform 0.1s;
     }
     .column-header:hover {
         background-color: rgba(0, 0, 0, 0.05);
