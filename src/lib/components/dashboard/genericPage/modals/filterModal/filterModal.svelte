@@ -3,6 +3,7 @@
     import { entityStore } from "$lib/stores/apiStores/entityStores";
     import countryList from "$lib/components/dashboard/countryList/countryList.json";
     import { onMount } from "svelte";
+    import { filterStore } from "$lib/stores/filterStore";
 
     export let isFilterModalOpen: boolean;
     export let entityName: string;
@@ -141,10 +142,6 @@
         );
     };
 
-    $: selectedAttributeNames = $selectedAttributes
-        .filter((attr) => attr.selected)
-        .map((attr) => attr.name);
-
     const localFilter = localStorage.getItem("FilterData");
 
     const handleApplyFilters = (filterValues: any) => {
@@ -154,7 +151,17 @@
             ...existingFilterData,
             [entityName]: filterValues,
         };
+
         localStorage.setItem("FilterData", JSON.stringify(existingFilterData));
+
+        filterStore.update((state) => ({
+            values: existingFilterData,
+            visible: Object.values(existingFilterData).some((entityFilters) =>
+                Object.values(entityFilters as object).some(
+                    (values) => Array.isArray(values) && values.length > 0,
+                ),
+            ),
+        }));
 
         isFilterModalOpen = false;
     };

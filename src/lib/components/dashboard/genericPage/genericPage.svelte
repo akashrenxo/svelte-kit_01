@@ -286,6 +286,9 @@
     }
 
     //*******************************************************************************************//
+
+    $: filters = $filterStore.values[entityName] || {};
+
 </script>
 
 {#if $isConnected}
@@ -328,7 +331,7 @@
         {#if $filterStore.visible && $filterStore.values[entityName]}
             <div class="px-2 py-4">
                 <div class="mb-3">
-                    <h3 class="text-lg font-semibold text-[#34495E]">
+                    <h3 class="text-base font-medium text-[#34495E]">
                         Selected Filters
                     </h3>
                 </div>
@@ -337,10 +340,13 @@
                         {#if values && values.length > 0}
                             {#each values as value}
                                 <div
-                                    class="flex items-center gap-2 px-3 py-1.5 bg-[#34495E]/10 text-[#34495E] rounded-full"
+                                    class="flex items-center font-medium gap-2 px-3 py-1.5 bg-[#34495E]/10 text-[#34495E] rounded-full hover:cursor-pointer font-poppins text-sm"
                                 >
                                     <span class="text-sm">
-                                        {formatLabel(field)}: {value}
+                                        {formatLabel(field)}: 
+                                    </span>
+                                    <span class="text-sm font-normal">
+                                        {value}
                                     </span>
                                     <button
                                         class="hover:bg-[#34495E]/20 rounded-full p-0.5 transition-colors"
@@ -374,16 +380,16 @@
         {/if}
         <!-- Table Container -->
         <div
-            class="overflow-x-auto border border-gray-300 rounded-lg shadow-md h-[450px] scrollbar-beautiful"
+            class="overflow-x-auto rounded-lg shadow-md h-[450px] scrollbar-beautiful"
         >
             <table
-                class="table-auto min-w-[800px] w-full text-sm text-gray-700 bg-white"
+                class="table-auto min-w-[800px] w-full text-sm border  text-gray-700 bg-white"
                 style="border-collapse: collapse;"
             >
-                <thead class="sticky top-0 bg-gray-50 border-b border-gray-300">
+                <thead class="sticky top-0 bg-gray-50 ">
                     <tr>
                         <th
-                            class="py-4 px-4 text-start font-semibold border-r border-gray-300 last:border-r-0 min-w-[120px]"
+                            class="py-4 px-4 text-start font-semibold min-w-[90px]"
                         >
                             ACTIONS
                         </th>
@@ -400,7 +406,7 @@
                                 style="width: {$columnWidths[
                                     columnName
                                 ]}px; min-width: {$columnWidths[columnName]}px"
-                                class="relative py-4 px-3 text-left font-semibold border-r border-gray-300 last:border-r-0 select-none transition-all duration-200 ease-in-out column-header
+                                class="relative py-4 px-3 text-left font-semibold select-none transition-all duration-200 ease-in-out column-header
                                 {draggedColumn === columnName
                                     ? 'bg-blue-100'
                                     : 'hover:bg-gray-200'}
@@ -443,10 +449,10 @@
                     {#if $entitiesData.length > 0}
                         {#each $entitiesData as entity}
                             <tr
-                                class="bg-white even:bg-gray-50 hover:bg-gray-200 duration-150 border-b border-gray-300 last:border-b-0"
+                                class="bg-white even:bg-gray-50 hover:bg-gray-200 duration-150 "
                             >
                                 <td
-                                    class="py-3 px-2 border-r border-gray-300 last:border-r-0"
+                                    class="py-3 px-2 "
                                     style="min-width:120px; white-space:nowrap;"
                                 >
                                     <div
@@ -480,7 +486,7 @@
                                 </td>
                                 {#each $columnOrder as columnName}
                                     <td
-                                        class="py-3 px-4 text-sm whitespace-nowrap hover:cursor-pointer border-r border-gray-300 last:border-r-0"
+                                        class="py-3 px-4 text-sm whitespace-nowrap hover:cursor-pointer"
                                         style="width: {$columnWidths[
                                             columnName
                                         ]}px; min-width: {columnName.length +
