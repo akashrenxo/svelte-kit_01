@@ -216,7 +216,7 @@
     }
     //********************************************************************************************//
 
-    // Resizing columns
+    //************************************ Resizing columns **************************************//
     let currentColumnIndex: number | null = null;
     let startX: number;
     let startWidth: number;
@@ -235,7 +235,7 @@
                     const width =
                         attr.data_type === "id"
                             ? 300
-                            : attr.data_type === "string"
+                            : attr.data_type === "text"
                               ? 300
                               : attr.data_type === "date"
                                 ? 300
@@ -278,6 +278,8 @@
         document.removeEventListener("mousemove", handleMouseMove);
         document.removeEventListener("mouseup", stopResize);
     }
+
+    //*******************************************************************************************//
 </script>
 
 {#if $isConnected}
@@ -328,7 +330,6 @@
             >
                 <thead class="sticky top-0 bg-gray-50 border-b border-gray-300">
                     <tr>
-                        <!-- Give the ACTIONS column a fixed min-width so the icons are visible -->
                         <th
                             class="py-4 px-4 text-start font-semibold border-r border-gray-300 last:border-r-0 min-w-[120px]"
                         >
@@ -396,9 +397,8 @@
                                     class="py-3 px-2 border-r border-gray-300 last:border-r-0"
                                     style="min-width:120px; white-space:nowrap;"
                                 >
-                                    <!-- Inline flex container to keep buttons in one line -->
                                     <div
-                                        class="inline-flex items-center gap-x-3"
+                                        class="flex items-center justify-start space-x-7 ml-1"
                                     >
                                         <button
                                             type="button"
@@ -424,19 +424,6 @@
                                                 class="h-5 inline"
                                             />
                                         </button>
-                                        <!-- If you want view details, uncomment:
-                                    <button
-                                        type="button"
-                                        class="text-blue-500 hover:text-blue-700 transition duration-150 ease-in-out"
-                                        on:click={() => openViewDetailsModal(entity)}
-                                    >
-                                        <img
-                                            src={viewDetails}
-                                            alt="viewDetails"
-                                            class="h-5 inline"
-                                        />
-                                    </button>
-                                    -->
                                     </div>
                                 </td>
                                 {#each $columnOrder as columnName}
@@ -444,9 +431,8 @@
                                         class="py-3 px-4 text-sm whitespace-nowrap hover:cursor-pointer border-r border-gray-300 last:border-r-0"
                                         style="width: {$columnWidths[
                                             columnName
-                                        ]}px; min-width: {$columnWidths[
-                                            columnName
-                                        ]}px"
+                                        ]}px; min-width: {columnName.length +
+                                            150}px"
                                         on:click={() =>
                                             openViewDetailsModal(entity)}
                                     >
@@ -575,7 +561,6 @@
     <p>Connecting to the server, please wait...</p>
 {/if}
 
-<!-- Modals -->
 {#if isAddModalOpen}
     <AddModal {entityName} bind:isAddModalOpen bind:limit />
 {/if}
