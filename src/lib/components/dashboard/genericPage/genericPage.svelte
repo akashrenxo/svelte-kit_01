@@ -1,7 +1,6 @@
 <script lang="ts">
     import edit from "$lib/../../src/assests/images/supplier/edit.png";
     import deleteButton from "$lib/../../src/assests/images/supplier/deleteButton.png";
-    import viewDetails from "$lib/../../src/assests/images/genericPage/viewDetails.png";
     import sortingArrows from "$lib/../../src/assests/images/genericPage/sortingArrows.png";
     import { entityStore } from "$lib/stores/apiStores/entityStores";
     import { onMount } from "svelte";
@@ -13,6 +12,7 @@
     import ViewModal from "./modals/viewModal/viewModal.svelte";
     import FilterModal from "./modals/filterModal/filterModal.svelte";
     import EditModal from "./modals/editModal/editModal.svelte";
+    import Loader from "../loader/loader.svelte";
 
     const wsURL = Cookies.get("url") || "";
     const userId = Cookies.get("userId") || "";
@@ -458,6 +458,10 @@
                                 {/each}
                             </tr>
                         {/each}
+                    {:else}
+                        <tr class="flex justify-center items-center h-32">
+                            <Loader show={true} />
+                        </tr>
                     {/if}
                 </tbody>
             </table>

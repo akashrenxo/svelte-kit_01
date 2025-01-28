@@ -11,17 +11,12 @@
         [key: string]: string[];
     }
 
-    interface FormFields {
-        [key: string]: any;
-    }
-
     interface Country {
         name: string;
         states: string[];
     }
 
     let filterValues: Filters = {};
-    let formFields: FormFields = {};
     let tempFilterInput: { [key: string]: string | boolean | number } = {};
     const countries: Country[] = countryList.countries;
 
@@ -556,6 +551,10 @@
                     on:click={() => {
                         console.log("Filters applied:", filterValues);
                         isFilterModalOpen = false;
+                        localStorage.setItem(
+                            "filterValues",
+                            JSON.stringify(filterValues),
+                        );
                     }}
                 >
                     Apply Filters
