@@ -144,6 +144,20 @@
     $: selectedAttributeNames = $selectedAttributes
         .filter((attr) => attr.selected)
         .map((attr) => attr.name);
+
+    const localFilter = localStorage.getItem("FilterData");
+
+    const handleApplyFilters = (filterValues: any) => {
+        let existingFilterData = localFilter ? JSON.parse(localFilter) : {};
+
+        existingFilterData = {
+            ...existingFilterData,
+            [entityName]: filterValues,
+        };
+        localStorage.setItem("FilterData", JSON.stringify(existingFilterData));
+
+        isFilterModalOpen = false;
+    };
 </script>
 
 <div
@@ -249,7 +263,9 @@
                                                 </span>
                                             {/each}
                                         </div>
-                                        <div class=" flex flex-row gap-x-2">
+                                        <div
+                                            class=" flex flex-row gap-x-2 mt-2"
+                                        >
                                             <input
                                                 type="text"
                                                 placeholder="Line 1"
@@ -287,7 +303,9 @@
                                                 </span>
                                             {/each}
                                         </div>
-                                        <div class=" flex flex-row gap-x-2">
+                                        <div
+                                            class=" flex flex-row gap-x-2 mt-2"
+                                        >
                                             <input
                                                 type="text"
                                                 placeholder="Line 2"
@@ -325,7 +343,9 @@
                                                 </span>
                                             {/each}
                                         </div>
-                                        <div class=" flex flex-row gap-x-2">
+                                        <div
+                                            class=" flex flex-row gap-x-2 mt-2"
+                                        >
                                             <input
                                                 type="text"
                                                 placeholder="Line 3"
@@ -363,7 +383,9 @@
                                                 </span>
                                             {/each}
                                         </div>
-                                        <div class=" flex flex-row gap-x-2">
+                                        <div
+                                            class=" flex flex-row gap-x-2 mt-2"
+                                        >
                                             <input
                                                 type="text"
                                                 placeholder="City"
@@ -401,7 +423,9 @@
                                                 </span>
                                             {/each}
                                         </div>
-                                        <div class=" flex flex-row gap-x-2">
+                                        <div
+                                            class=" flex flex-row gap-x-2 mt-2"
+                                        >
                                             <input
                                                 type="text"
                                                 placeholder="Zip Code"
@@ -439,7 +463,9 @@
                                                 </span>
                                             {/each}
                                         </div>
-                                        <div class=" flex flex-row gap-x-2">
+                                        <div
+                                            class=" flex flex-row gap-x-2 mt-2"
+                                        >
                                             <select
                                                 value={tempFilterInput[
                                                     "country"
@@ -486,7 +512,9 @@
                                                 </span>
                                             {/each}
                                         </div>
-                                        <div class=" flex flex-row gap-x-2">
+                                        <div
+                                            class=" flex flex-row gap-x-2 mt-2"
+                                        >
                                             <select
                                                 disabled={!states.length}
                                                 bind:value={tempFilterInput[
@@ -550,11 +578,7 @@
                     class="px-4 py-2 bg-[#34495E] text-white rounded-lg"
                     on:click={() => {
                         console.log("Filters applied:", filterValues);
-                        isFilterModalOpen = false;
-                        localStorage.setItem(
-                            "filterValues",
-                            JSON.stringify(filterValues),
-                        );
+                        handleApplyFilters(filterValues);
                     }}
                 >
                     Apply Filters

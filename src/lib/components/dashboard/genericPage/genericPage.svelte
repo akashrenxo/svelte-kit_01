@@ -13,6 +13,12 @@
     import FilterModal from "./modals/filterModal/filterModal.svelte";
     import EditModal from "./modals/editModal/editModal.svelte";
     import Loader from "../loader/loader.svelte";
+    import {
+        filterStore,
+        filterActions,
+        formatLabel,
+        loadFiltersFromStorage,
+    } from "$lib/stores/filterStore";
 
     const wsURL = Cookies.get("url") || "";
     const userId = Cookies.get("userId") || "";
@@ -108,6 +114,7 @@
                 try {
                     await fetchEntityAttributes();
                     await fetchEntities(limit, nextOffset, requestId);
+                    loadFiltersFromStorage();
                     console.log("Data fetched successfully");
                     return true;
                 } catch (error) {
@@ -223,7 +230,6 @@
     let columnWidths = writable<{ [key: string]: number }>({});
     let isResizing = false;
 
-    // Initialize column order and widths
     $: if ($attributes?.length > 0 && $columnOrder.length === 0) {
         columnOrder.set($attributes.map((attr) => attr.name));
     }
@@ -319,7 +325,53 @@
                 </button>
             </div>
         </div>
-
+        {#if $filterStore.visible && $filterStore.values[entityName]}
+            <div class="px-2 py-4">
+                <div class="mb-3">
+                    <h3 class="text-lg font-semibold text-[#34495E]">
+                        Selected Filters
+                    </h3>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    {#each Object.entries($filterStore.values[entityName] || {}) as [field, values]}
+                        {#if values && values.length > 0}
+                            {#each values as value}
+                                <div
+                                    class="flex items-center gap-2 px-3 py-1.5 bg-[#34495E]/10 text-[#34495E] rounded-full"
+                                >
+                                    <span class="text-sm">
+                                        {formatLabel(field)}: {value}
+                                    </span>
+                                    <button
+                                        class="hover:bg-[#34495E]/20 rounded-full p-0.5 transition-colors"
+                                        aria-label="Remove {formatLabel(
+                                            field,
+                                        )} filter for {value}"
+                                        on:click={() =>
+                                            filterActions.removeFilter(
+                                                entityName,
+                                                field,
+                                                value,
+                                            )}
+                                    >
+                                        <span class="text-[#34495E]">X</span>
+                                    </button>
+                                </div>
+                            {/each}
+                        {/if}
+                    {/each}
+                    {#if Object.keys($filterStore.values[entityName] || {}).length > 0}
+                        <button
+                            class="px-3 py-1.5 bg-red-100 text-red-600 rounded-full hover:bg-red-200 transition-colors"
+                            on:click={() =>
+                                filterActions.clearEntityFilters(entityName)}
+                        >
+                            Clear All Filters
+                        </button>
+                    {/if}
+                </div>
+            </div>
+        {/if}
         <!-- Table Container -->
         <div
             class="overflow-x-auto border border-gray-300 rounded-lg shadow-md h-[450px] scrollbar-beautiful"
@@ -594,10 +646,9 @@
 <style>
     th,
     td {
-        border-color: #d1d5db; /* tailwind's gray-300 */
+        border-color: #d1d5db;
     }
 
-    /* The handle for resizing */
     .resize-handle {
         position: absolute;
         right: 0;
@@ -651,12 +702,10 @@
         opacity: 0.9;
     }
 
-    /* This helps prevent text selection during drag */
     .select-none {
         user-select: none;
     }
 
-    /* Force text overflow to ellipsis (particularly for table cells) */
     td {
         max-width: 0;
         overflow: hidden;
